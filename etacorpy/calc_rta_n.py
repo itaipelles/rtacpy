@@ -114,21 +114,21 @@ def calc_area_of_union_of_rectangles(R):
 @njit
 def create_clipped_rectangles_around_points(x: ArrayLike, y: ArrayLike, edge_length: float):
     half_edge_length = 0.5*edge_length
-    arrays = (np.maximum(x-half_edge_length,0), 
-        np.maximum(y-half_edge_length,0), 
-        np.minimum(x+half_edge_length,1), 
-        np.minimum(y+half_edge_length,1))
+    arrays = (np.maximum(np.subtract(x,half_edge_length),0), 
+        np.maximum(np.subtract(y,half_edge_length),0), 
+        np.minimum(np.add(x,half_edge_length),1), 
+        np.minimum(np.add(y,half_edge_length),1))
     return np.vstack(arrays).T
 
 @njit
 def fast_rank_data(data: ArrayLike, n: int) -> ArrayLike:
     temp = np.argsort(data)
     ranks = np.empty_like(temp)
-    ranks[temp] = np.arange(n)
+    ranks[temp] = np.arange(n)+1
     return ranks
 
 @njit
-def calc_rta_n(x,y, coverage_factor=1, edge_length=None):
+def calc_rta_n(x,y, coverage_factor=1.0, edge_length=None):
     n = len(x)
     x = fast_rank_data(x,n)/(n+1)
     y = fast_rank_data(y,n)/(n+1)
