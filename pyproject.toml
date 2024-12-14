@@ -1,0 +1,29 @@
+[project]
+name = "etacorpy"
+version = "0.1.0"
+description = "A Python package for calculating eta, the rank-transform area coverage coefficient of correlation."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{name = "Itai Pelles"}]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "numpy",
+    "numba"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/itaipelles/etacorpy"
+Changelog = "https://github.com/itaipelles/etacorpy/releases"
+Issues = "https://github.com/itaipelles/etacorpy/issues"
+CI = "https://github.com/itaipelles/etacorpy/actions"
+
+
+[project.optional-dependencies]
+test = ["pytest"]
