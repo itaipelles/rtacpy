@@ -1,4 +1,4 @@
-# alphashapy
+# etacorpy
 
 [![PyPI](https://img.shields.io/pypi/v/etacorpy.svg)](https://pypi.org/project/etacorpy/)
 [![Docs](https://readthedocs.org/projects/etacorpy/badge/?version=latest)](https://etacorpy.readthedocs.io/en/latest/)
