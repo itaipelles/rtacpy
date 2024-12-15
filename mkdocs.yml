@@ -1,0 +1,18 @@
+site_name: Etacorpy
+theme:
+  name: readthedocs
+  highlightjs: true
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        # See: https://mkdocstrings.github.io/python/usage/
+        python:
+          paths: [etacorpy]
+          options:
+            docstring_style: sphinx
+markdown_extensions:
+  - markdown_include.include:
+      base_path: .
+  - admonition
