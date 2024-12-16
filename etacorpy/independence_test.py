@@ -12,4 +12,4 @@ def calc_p_value(eta_n, null_dist):
 def area_coverage_independence_test(x, y, coverage_factor=1, null_dist=None):
     null_dist = null_dist if null_dist is not None else create_null_dist(len(x), coverage_factor)
     eta_n = calc_eta_n(x,y,coverage_factor)
-    return calc_p_value(eta_n, null_dist)
+    return eta_n, calc_p_value(eta_n, null_dist)

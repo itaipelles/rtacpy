@@ -37,10 +37,11 @@ def test_area_coverage_independence_test(example_data):
 
     # Run the test with a provided null distribution
     null_dist = np.random.rand(2000)
-    p_value = area_coverage_independence_test(x, y, coverage_factor, null_dist)
+    eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor, null_dist)
+    assert p_value == calc_p_value(eta_n, null_dist)
     
     assert 0 <= p_value <= 1  # p-value should be in [0, 1]
 
     # Run the test without a provided null distribution (generates one internally)
-    p_value = area_coverage_independence_test(x, y, coverage_factor)
+    eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor)
     assert 0 <= p_value <= 1

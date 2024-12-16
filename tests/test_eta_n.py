@@ -1,5 +1,6 @@
 import numpy as np
-from etacorpy import calc_eta_n, calc_alpha_n, calc_rta_n
+from etacorpy.calc_eta_n import calc_eta_n, calc_alpha_n
+from etacorpy.calc_rta_n import calc_rta_n
 
 def test_rta_n_vs_alpha_n():
     ns = [2**i for i in range(1,15)]
