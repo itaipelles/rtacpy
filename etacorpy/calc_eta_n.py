@@ -26,10 +26,10 @@ def calc_alpha_n(n, L):
 def calc_eta_n(x,y,coverage_factor=1.0):
     '''Calculates \(\eta_n(S_n, \\text{coverage_factor})\) for \(S_n:=\{(x_i, y_i)\}_{i=1}^n\).
     
-    :param x: A numpy.ndarray with shape (n,)
-    :param y: A numpy.ndarray with shape (n,)
-    :param coverage_factor: A positive float
-    :return: \(\eta_n(S_n, \\text{coverage_factor})\)
+    :param x: A numpy.ndarray with shape (n,).
+    :param y: A numpy.ndarray with shape (n,).
+    :param coverage_factor: A positive float.
+    :return: \(\eta_n(S_n, \\text{coverage_factor})\).
     :rtype: float
     '''
     n = len(x)
