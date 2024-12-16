@@ -24,6 +24,14 @@ def calc_alpha_n(n, L):
 
 @njit
 def calc_eta_n(x,y,coverage_factor=1.0):
+    '''
+    Calculates $\eta_n(S_n, coverage_factor)$ for $S_n:=\{(x_i, y_i)\}$.
+    
+    :param x: A numpy.ndarray with shape (n,)
+    :param y: A numpy.ndarray with shape (n,)
+    :return: $\eta_n(S_n, coverage_factor)$
+    :rtype: float
+    '''
     n = len(x)
     edge_length = np.sqrt(coverage_factor/n)
     RTA_n = calc_rta_n(x, y, edge_length=edge_length)
