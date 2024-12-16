@@ -1,10 +1,6 @@
 import numpy as np
 from etacorpy import calc_eta_n, calc_alpha_n, calc_rta_n
 
-print('compiling')
-calc_eta_n(np.array([1.0,1.1]),np.array([2.0,3.1]))
-print('done compiling')
-
 def test_rta_n_vs_alpha_n():
     ns = [2**i for i in range(1,15)]
     cfs = [0.1,0.5,1,2,5,10]
@@ -24,6 +20,7 @@ def test_1_on_monotone_correlations():
 def test_agnostic_to_monotonic_transformations():
     ns = [3**i for i in range(1,10)]
     cfs = [0.3, 0.9, 1.7, 9.2]
+    np.random.seed(42)  # Ensure reproducibility
     for n in ns:
         x = np.random.rand(n)
         y = x
