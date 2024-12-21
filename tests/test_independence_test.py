@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from unittest.mock import patch
+from etacorpy.calc_eta_n import calc_eta_n
 from etacorpy.independence_test import create_null_dist, calc_p_value, area_coverage_independence_test
 
 @pytest.fixture
@@ -39,9 +39,11 @@ def test_area_coverage_independence_test(example_data):
     null_dist = np.random.rand(2000)
     eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor, null_dist)
     assert p_value == calc_p_value(eta_n, null_dist)
+    assert eta_n == calc_eta_n(x,y,coverage_factor)
     
     assert 0 <= p_value <= 1  # p-value should be in [0, 1]
 
     # Run the test without a provided null distribution (generates one internally)
     eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor)
+    assert eta_n == calc_eta_n(x,y,coverage_factor)
     assert 0 <= p_value <= 1
