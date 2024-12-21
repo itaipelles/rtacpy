@@ -3,7 +3,7 @@ name = "etacorpy"
 version = "0.1.5"
 description = "A Python package for calculating eta n, the rank-transform area coverage coefficient of correlation."
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 authors = [{name = "Itai Pelles"}]
 license = {text = "Apache-2.0"}
 classifiers = [
