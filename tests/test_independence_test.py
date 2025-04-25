@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
-from etacorpy.calc_eta_n import calc_eta_n
-from etacorpy.independence_test import create_null_dist, calc_p_value, area_coverage_independence_test
+from rtacpy.calc_rtac_n import calc_rtac_n
+from rtacpy.independence_test import create_null_dist, calc_p_value, area_coverage_independence_test
 
 @pytest.fixture
 def example_data():
@@ -24,11 +24,11 @@ def test_create_null_dist():
 
 def test_calc_p_value():
     null_dist = np.array([0.2, 0.4, 0.6, 0.8, 0.95])
-    eta_ns = [0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
+    rtac_ns = [0.1, 0.3, 0.5, 0.7, 0.9, 1.0]
     expected_p_values = [1, 0.8, 0.6, 0.4, 0.2, 0.0]
     
-    for (eta_n, expected_p_value) in zip(eta_ns, expected_p_values):
-        p_value = calc_p_value(eta_n, null_dist)
+    for (rtac_n, expected_p_value) in zip(rtac_ns, expected_p_values):
+        p_value = calc_p_value(rtac_n, null_dist)
         assert p_value == expected_p_value
 
 def test_area_coverage_independence_test(example_data):
@@ -37,13 +37,13 @@ def test_area_coverage_independence_test(example_data):
 
     # Run the test with a provided null distribution
     null_dist = np.random.rand(2000)
-    eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor, null_dist)
-    assert p_value == calc_p_value(eta_n, null_dist)
-    assert eta_n == calc_eta_n(x,y,coverage_factor)
+    rtac_n, p_value = area_coverage_independence_test(x, y, coverage_factor, null_dist)
+    assert p_value == calc_p_value(rtac_n, null_dist)
+    assert rtac_n == calc_rtac_n(x,y,coverage_factor)
     
     assert 0 <= p_value <= 1  # p-value should be in [0, 1]
 
     # Run the test without a provided null distribution (generates one internally)
-    eta_n, p_value = area_coverage_independence_test(x, y, coverage_factor)
-    assert eta_n == calc_eta_n(x,y,coverage_factor)
+    rtac_n, p_value = area_coverage_independence_test(x, y, coverage_factor)
+    assert rtac_n == calc_rtac_n(x,y,coverage_factor)
     assert 0 <= p_value <= 1

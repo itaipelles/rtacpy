@@ -1,5 +1,5 @@
 import numpy as np
-from etacorpy.calc_rta_n import calc_area_of_union_of_rectangles
+from rtacpy.calc_rta_n import calc_area_of_union_of_rectangles
 
 # lists of rectangles are defined by (x1, y1, x2, y2)
 

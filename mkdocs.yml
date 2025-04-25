@@ -1,4 +1,4 @@
-site_name: Etacorpy
+site_name: rtacpy
 theme:
   name: readthedocs
   highlightjs: true
@@ -9,7 +9,7 @@ plugins:
       handlers:
         # See: https://mkdocstrings.github.io/python/usage/
         python:
-          paths: [etacorpy]
+          paths: [rtacpy]
           options:
             docstring_style: sphinx
 extra_javascript:

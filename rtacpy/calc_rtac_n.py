@@ -1,7 +1,7 @@
 from math import sqrt
 import numpy as np
 from numba import njit
-from etacorpy.calc_rta_n import calc_rta_n
+from rtacpy.calc_rta_n import calc_rta_n
 
 @njit
 def calc_alpha_n(n, L):
@@ -23,18 +23,20 @@ def calc_alpha_n(n, L):
     return min(1, d*e + c_squared + (n - 2.0*num_overlap1)*q**2 + 2.0*left_over**2)
 
 @njit
-def calc_eta_n(x,y,coverage_factor=1.0):
-    '''Calculates \(\eta_n(S_n, \\text{coverage_factor})\) for \(S_n:=\{(x_i, y_i)\}_{i=1}^n\).
+def calc_rtac_n(x,y,coverage_factor=1.0):
+    '''Calculates \(\text{RTAC}_n(S_n, \\text{coverage_factor})\) for \(S_n:=\{(x_i, y_i)\}_{i=1}^n\).
     
     :param x: A numpy.ndarray with shape (n,).
     :param y: A numpy.ndarray with shape (n,).
     :param coverage_factor: A positive float.
-    :return: \(\eta_n(S_n, \\text{coverage_factor})\).
+    :return: \(\text{RTAC}_n(S_n, \\text{coverage_factor})\).
     :rtype: float
     '''
     n = len(x)
     edge_length = np.sqrt(coverage_factor/n)
     RTA_n = calc_rta_n(x, y, edge_length=edge_length)
     alpha_n = calc_alpha_n(n, edge_length)
-    eta_n = 1 - ((RTA_n - alpha_n)/(1-np.exp(-coverage_factor)-alpha_n))
-    return eta_n
+    rtac_n = 1 - ((RTA_n - alpha_n)/(1-np.exp(-coverage_factor)-alpha_n))
+    return rtac_n
+
+calc_rtac = calc_rtac_n

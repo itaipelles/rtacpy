@@ -1,4 +1,4 @@
 # API Reference
 
-::: calc_eta_n
+::: calc_rtac_n
 ::: independence_test

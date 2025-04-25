@@ -1,10 +1,10 @@
 # rtacpy
 
-[![PyPI](https://img.shields.io/pypi/v/etacorpy.svg)](https://pypi.org/project/etacorpy/)
-[![Docs](https://readthedocs.org/projects/etacorpy/badge/?version=latest)](https://etacorpy.readthedocs.io/en/latest/)
-[![Tests](https://github.com/itaipelles/etacorpy/actions/workflows/test.yml/badge.svg)](https://github.com/itaipelles/etacorpy/actions/workflows/test.yml)
-[![Changelog](https://img.shields.io/github/v/release/itaipelles/etacorpy?include_prereleases&label=changelog)](https://github.com/itaipelles/etacorpy/releases)
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/itaipelles/etacorpy/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/rtacpy.svg)](https://pypi.org/project/rtacpy/)
+[![Docs](https://readthedocs.org/projects/rtacpy/badge/?version=latest)](https://rtacpy.readthedocs.io/en/latest/)
+[![Tests](https://github.com/itaipelles/rtacpy/actions/workflows/test.yml/badge.svg)](https://github.com/itaipelles/rtacpy/actions/workflows/test.yml)
+[![Changelog](https://img.shields.io/github/v/release/itaipelles/rtacpy?include_prereleases&label=changelog)](https://github.com/itaipelles/rtacpy/releases)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/itaipelles/rtacpy/blob/main/LICENSE)
 
 A Python package for calculating RTAC, the rank-transform area coverage coefficient of correlation. This is the official repository of the paper (link TBD):
 
